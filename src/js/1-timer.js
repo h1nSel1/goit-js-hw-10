@@ -46,6 +46,7 @@ const onButton = event => {
   if (intervalId) return;
 
   buttonEl.disabled = true;
+  inputEl.disabled = true;
 
   intervalId = setInterval(() => {
     const diff = userSelectedDate - Date.now();
@@ -53,7 +54,10 @@ const onButton = event => {
     if (diff <= 0) {
       clearInterval(intervalId);
       intervalId = null;
+
       buttonEl.disabled = false;
+      inputEl.disabled = false;
+
       return;
     }
 
